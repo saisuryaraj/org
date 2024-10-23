@@ -1,0 +1,31 @@
+package utilities;
+import java.util.Base64;
+
+import javax.crypto.SecretKey;
+
+public class PasswordEncryption {
+    public static void main(String[] args) {
+        try {
+            // Generate a key (do this once and save it securely)
+            SecretKey secretKey = EncryptionUtil.generateKey();
+
+            // Your plain password
+            String password = "your_password"; // Replace with your actual password
+
+            // Encrypt the password
+            String encryptedPassword = EncryptionUtil.encrypt(password, secretKey);
+            System.out.println("Encrypted Password: " + encryptedPassword);
+
+            // Save the key and encrypted password in your config file
+            // Example:
+            // properties.setProperty("db.password", encryptedPassword);
+            // properties.setProperty("encryption.key", Base64.getEncoder().encodeToString(secretKey.getEncoded()));
+            
+            // Optionally, print the key for later use (store this securely!)
+            System.out.println("Secret Key: " + Base64.getEncoder().encodeToString(secretKey.getEncoded()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

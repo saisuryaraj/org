@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="FeatureImportWizard">
+		<item key="droplocation0" value="C:\Users\saisu\eclipse\java-2024-062\eclipse\"/>
+		<item key="droplocation1" value=""/>
+		<item key="doother" value="false"/>
+		<item key="notbinary" value="false"/>
+		<section name="FeatureImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="30"/>
+			<item key="DIALOG_Y_ORIGIN" value="101"/>
+			<item key="DIALOG_WIDTH" value="700"/>
+			<item key="DIALOG_HEIGHT" value="700"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+</section>

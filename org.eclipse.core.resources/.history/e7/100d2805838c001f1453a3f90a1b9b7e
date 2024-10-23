@@ -1,0 +1,41 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ConfigReader {
+    public static void main(String[] args) {
+        try {
+            // Load config.properties
+            Properties prop = new Properties();
+            prop.load(new FileInputStream("C:\\Users\\saisu\\OG-Innovations\\src\\test\\resources\\config\\dev_config.properties"));
+
+            // Get the encrypted URL from dev_config.properties
+            String encryptedUrl = prop.getProperty("MY_TEST_URL");
+
+            // Ensure the encrypted URL is not null or empty
+            if (encryptedUrl == null || encryptedUrl.isEmpty()) {
+                System.out.println("Error: Encrypted URL is not found in the properties file.");
+                return;
+            }
+
+            // Decrypt the URL
+            String decryptedUrl = EncryptionUtil.decrypt(encryptedUrl);
+            if (decryptedUrl == null) {
+                System.out.println("Error: Failed to decrypt the URL.");
+                return;
+            }
+
+            // Mask the URL for logs
+            System.out.println("Masked URL: " + EncryptionUtil.maskPassword(decryptedUrl));
+
+            // Now you can use the decryptedUrl for your application logic
+            // For example: System.out.println("Decrypted URL: " + decryptedUrl);
+        } catch (IOException e) {
+            System.out.println("Error while reading properties file: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

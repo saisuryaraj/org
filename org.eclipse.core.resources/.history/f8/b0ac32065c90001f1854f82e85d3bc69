@@ -1,0 +1,21 @@
+package day4;
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import io.restassured.http.ContentType;
+
+public class ParsingJsonResponseData {
+
+    @Test(priority = 1)
+    void testJsonResponse() {
+        // Log the response to check the structure
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("http://localhost:3000/students/")
+        .then()
+            .statusCode(200)
+            .log().all();  // Log the entire response to see the actual JSON
+    }
+}

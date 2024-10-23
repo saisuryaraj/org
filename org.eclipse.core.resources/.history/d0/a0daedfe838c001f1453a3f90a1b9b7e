@@ -1,0 +1,53 @@
+package utilities;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
+
+public class EncryptionUtil {
+    // Secret key for AES (must be 16 bytes for AES-128)
+    private static final String SECRET_KEY = "1234567890123456"; // Replace with your actual key
+
+    public static String encrypt(String data) {
+        try {
+            SecretKeySpec secretKey = new SecretKeySpec(SECRET_KEY.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] encryptedBytes = cipher.doFinal(data.getBytes());
+            return Base64.getEncoder().encodeToString(encryptedBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String decrypt(String encryptedData) {
+        try {
+            SecretKeySpec secretKey = new SecretKeySpec(SECRET_KEY.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedData));
+            return new String(decryptedBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Test URL
+        String originalURL = "https://tutorialsninja.com/demo/index.php?route=common/home"; // Replace with your actual URL
+        String encryptedURL = encrypt(originalURL);
+        System.out.println("Encrypted URL: " + encryptedURL);
+
+        String decryptedURL = decrypt(encryptedURL);
+        System.out.println("Decrypted URL: " + decryptedURL);
+
+        // Check if the decryption works
+        if (originalURL.equals(decryptedURL)) {
+            System.out.println("Decryption successful!");
+        } else {
+            System.out.println("Decryption failed!");
+        }
+    }
+}

@@ -1,0 +1,12 @@
+package utilities;
+public class UrlEncryptor {
+    public static void main(String[] args) {
+        try {
+            String originalUrl = "tutorialsninja.com/demo/index.php?route=common/home"; // Replace with your actual URL
+            String encryptedUrl = EncryptionUtil.encrypt(originalUrl);
+            System.out.println("Encrypted URL: " + encryptedUrl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

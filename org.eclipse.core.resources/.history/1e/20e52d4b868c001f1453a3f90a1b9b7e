@@ -1,0 +1,27 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ConfigReader {
+    public static void main(String[] args) {
+        try {
+            // Load config.properties
+            Properties prop = new Properties();
+            prop.load(new FileInputStream("C:\\Users\\saisu\\OG-Innovations\\src\\test\\resources\\config\\dev_config.properties"));
+
+            // Get the encrypted URL from config.properties
+            String encryptedUrl = prop.getProperty("MY_TEST_URL");
+
+            // Decrypt the URL
+            String decryptedUrl = EncryptionUtil.decrypt(encryptedUrl);
+            System.out.println("Decrypted URL: " + decryptedUrl);
+
+            // Use the decrypted URL in your Selenium tests
+            // For example: driver.get(decryptedUrl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

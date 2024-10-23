@@ -1,0 +1,13 @@
+package utilities;
+public class ConfigEncryptor {
+    public static void main(String[] args) {
+        try {
+            String plainTextPassword = "yourPlainPassword"; // Replace with your actual password
+            String encryptedPassword = EncryptionUtil.encrypt(plainTextPassword);
+            System.out.println("Encrypted Password: " + encryptedPassword);
+            // Add this encrypted password to the config.properties file manually
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

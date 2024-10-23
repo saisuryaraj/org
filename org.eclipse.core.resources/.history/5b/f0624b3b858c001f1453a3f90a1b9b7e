@@ -1,0 +1,54 @@
+package utilities;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ConfigReader {
+    public static void main(String[] args) {
+        try {
+            // Load config.properties
+            Properties prop = new Properties();
+            prop.load(new FileInputStream("C:\\Users\\saisu\\OG-Innovations\\src\\test\\resources\\config\\dev_config.properties"));
+
+            // Get the encrypted password from config.properties
+            String encryptedPassword = prop.getProperty("MY_TEST_URL");
+            String testUrl = prop.getProperty("MY_TEST_URL");
+
+            // Check if encryptedPassword is null
+            if (encryptedPassword == null || testUrl == null) {
+                System.out.println("The encrypted password or URL is null. Please check your properties file.");
+                return;
+            }
+
+            // Decrypt the password
+            String decryptedPassword = EncryptionUtil.decrypt(encryptedPassword);
+            if (decryptedPassword == null) {
+                System.out.println("Failed to decrypt password.");
+                return;
+            }
+
+            // Mask the password for logs
+            System.out.println("Password: " + EncryptionUtil.maskPassword(decryptedPassword));
+
+            // Set up Selenium WebDriver (Make sure to have the ChromeDriver set up)
+            System.setProperty("webdriver.chrome.driver", "path_to_your_chromedriver"); // Update the path to your ChromeDriver
+            WebDriver driver = new ChromeDriver();
+            driver.get(testUrl); // Open the URL
+
+            // Here you can add code to perform login using the decrypted password
+            // For example: login(username, decryptedPassword);
+
+            // Remember to close the driver at the end
+            // driver.quit();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

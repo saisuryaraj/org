@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;TestBase&apos; to &apos;nopCommerceV001_Cucumber&apos;&#x0D;&#x0A;- Original project: &apos;OpencartV1&apos;&#x0D;&#x0A;- Destination element: &apos;nopCommerceV001_Cucumber&apos;&#x0D;&#x0A;- Original element: &apos;OpencartV1/src/test/java/TestBase&apos;" description="Copy package" element1="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;TestBase" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1724223000241" target="/nopCommerceV001_Cucumber" version="1.0"/>
+</session>

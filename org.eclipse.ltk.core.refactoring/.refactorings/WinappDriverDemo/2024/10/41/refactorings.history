@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;NotePadTests.java&apos; to &apos;CalculatorTest/src/test/java/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;WinappDriverDemo&apos;&#x0D;&#x0A;- Destination element: &apos;CalculatorTest/src/test/java/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;com.mytests.NotePadTests.java&apos;" description="Copy compilation unit" destination="=CalculatorTest/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;" element1="/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;com.mytests{NotePadTests.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1728299355117" units="1" version="1.0"/>
+</session>

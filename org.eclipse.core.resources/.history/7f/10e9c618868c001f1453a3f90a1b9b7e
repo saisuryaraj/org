@@ -1,0 +1,41 @@
+############# Menu Drive DEV ENVIRONMENT ##############################
+TEST_URL=https://woocommerce-834932-4231106.cloudwaysapps.com
+#MY_TEST_URL=https://classic.freecrm.com/index.html?e=1
+#MY_TEST_URL=https://tutorialsninja.com/demo/index.php?route=common/home
+MY_TEST_URL=ECYxLLRSXw8u04pcqhpeuq1UMkPuAoJ2mhzB4YtwsnaP81+NqflZ2rl/56KzcY12Up1/dwwI31hgYD7Hkd1FhQ==
+#TEST_URL=http://localhost:8080/
+
+IMPLICIT_WAIT=10
+EXPLICIT_WAIT=10
+
+WEB_IMPLICIT_WAIT=10
+WEB_CUSTOM_WAIT=10
+
+MOBILE_IMPLICIT_WAIT=60
+MOBILE_CUSTOM_WAIT=60
+
+############# AMAZON DEV ENVIRONMENT ##############################
+BASE_URL=https://www.amazon.in/
+Email_Address=nmksridhar@gmail.com
+User_Password=Testing@1234
+Enteremail/phone="PH_Enter email / phone"
+############# JIRA CREDENTIALS ##############################
+Create_Issue_In_Jira=YES
+JIRA_URL=https://nmksridhartest.atlassian.net/
+JIRA_EMAIL=nmksridhar@gmail.com
+JIRA_TOKEN=ATATT3xFfGF0XLYqe5TrK1mUNMS6V74uLgOCBaYlgYtyskqK-yj4R7wd2Ij2eHT_7EoWuwLSHRTxFh5kKGnhGsI6hBpbDVYQ_25g8YtsYJhPvAL8xwuPHmzZ4utABt021AYzk0dpH1_YodlBIwf-HVkhNmcns5daeruZkxg1CnsFaHU4SfnyAUI=4CE57A9F
+
+############# VIGO DEV ENVIRONMENT ##############################
+username=admin123
+password=changeme
+
+############# API DEV ENVIRONMENT ##############################
+#API_BASE_URL=http://localhost:8080
+API_BASE_URL=https://ogmoneyapisb.ogstaging.com
+############# DB DEV ENVIRONMENT ##############################
+db_url=jdbc:mysql://localhost:3306/dft_demo_DB?useSSL=false
+db_username=root
+db_password = admin@123
+
+
+

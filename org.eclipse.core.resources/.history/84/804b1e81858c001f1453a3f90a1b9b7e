@@ -1,0 +1,11 @@
+public class UrlEncryptor {
+    public static void main(String[] args) {
+        try {
+            String originalUrl = "http://your-url.com"; // Replace with your actual URL
+            String encryptedUrl = EncryptionUtil.encrypt(originalUrl);
+            System.out.println("Encrypted URL: " + encryptedUrl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

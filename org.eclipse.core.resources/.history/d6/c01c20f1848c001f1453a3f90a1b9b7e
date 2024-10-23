@@ -1,0 +1,43 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ConfigReader {
+    public static void main(String[] args) {
+        try {
+            // Load config.properties
+            Properties prop = new Properties();
+            prop.load(new FileInputStream("C:\\Users\\saisu\\OG-Innovations\\src\\test\\resources\\config\\dev_config.properties"));
+
+            // Get the encrypted password from config.properties
+            String encryptedPassword = prop.getProperty("MY_TEST_URL");
+            System.out.println("Encrypted Password from properties file: " + encryptedPassword); // Debugging line
+
+            // Check if encryptedPassword is null
+            if (encryptedPassword == null) {
+                System.out.println("The encrypted password is null. Please check your properties file.");
+                return;
+            }
+
+            // Decrypt the password
+            String decryptedPassword = EncryptionUtil.decrypt(encryptedPassword);
+            if (decryptedPassword == null) {
+                System.out.println("Failed to decrypt password.");
+                return;
+            }
+
+            // Mask the password for logs
+            System.out.println("Password: " + EncryptionUtil.maskPassword(decryptedPassword));
+
+            // Now use the decryptedPassword for login, etc.
+            // For example: login(username, decryptedPassword);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,21 @@
+package day5;
+import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+public class ParsingXMLResponse {
+	
+	@Test(priority = 1)
+	void testXmlResponse() {
+		//approach
+		given()
+		.when()
+			.get("https://fakerestapi.azurewebsites.net/api/v1/Books")
+		.then()
+			.statusCode(200)
+			.header("Content-Type", "application/json; charset=utf-8; v=1.0")
+			.log().all();
+	}
+}

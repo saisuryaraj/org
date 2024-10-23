@@ -1,0 +1,12 @@
+@mytest1
+  Scenario: Validate Menu Drive Login Functionality With Valid Test Data
+	  Given I navigate to web application
+	 	Then I should see page title as "Free CRM software for customer relationship management, sales, and support."
+	 	And I see "ID=navbar-collapse" web element
+	 	And I enter "PH=Username" as "Kumar12"
+	 	And I enter "PH=Password" as "123456"
+	 	And I click on "TYPE=submit"
+	 	When I swith to frame by "NAME=mainpanel"
+	 	And I see "VT=Timeline" web element
+	 	And I click on "VT=Logout"
+	 	And I close the broswer

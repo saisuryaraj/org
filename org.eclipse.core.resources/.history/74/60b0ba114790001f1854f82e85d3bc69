@@ -1,0 +1,60 @@
+package day3;
+
+import org.testng.annotations.Test;
+
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import java.util.Map;
+public class HeadersDemo {
+
+	//@Test
+	void testHeader() {
+		given()
+			
+		.when()
+			.get("https://www.google.com/")
+		.then()
+			.header("Expires", "-1")
+			.log().all();
+	}
+	
+	@Test
+	void testHeaders() {
+		Response res =given()
+			
+		.when()
+			.get("https://www.google.com/");
+		
+//		.then()
+//			.header("Expires", "-1")
+//			.log().all();
+		String headervalue =res.getHeader("Content-Type");
+		System.out.println(headervalue);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

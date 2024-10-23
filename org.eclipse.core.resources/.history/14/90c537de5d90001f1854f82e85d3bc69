@@ -1,0 +1,23 @@
+package day4;
+
+import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+import io.restassured.http.ContentType;
+
+public class ParsingJsonResponseData {
+
+    @Test(priority = 1)
+    void testJsonResponse() {
+        // approach 1
+        given()
+            .contentType(ContentType.JSON)
+        .when()
+            .get("http://localhost:3000/students")
+        .then()
+            .statusCode(200)  // Expecting HTTP 200 OK response
+            .header("Content-Type", "application/json")  // Validate header
+            .body("students[1].name", equalTo("Raj"));  // Check if the second student's name is 'Raj'
+            //.log().all();  // Log the response
+    }
+}

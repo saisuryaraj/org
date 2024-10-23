@@ -1,0 +1,37 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ConfigReader {
+    public static void main(String[] args) {
+        try {
+            // Load config.properties
+            Properties prop = new Properties();
+            prop.load(new FileInputStream("C:\\Users\\saisu\\git\\nopCommerce_V001_Cucumber\\nopCommerceV001_Cucumber\\src\\test\\resources\\config.properties"));
+
+            // Get the encrypted URL from config.properties
+            String encryptedUrl = prop.getProperty("MY_TEST_URL");
+
+            // Decrypt the URL
+            String decryptedUrl = EncryptionUtil.decrypt(encryptedUrl);
+            System.out.println("Decrypted URL: " + decryptedUrl);
+
+            // Initialize WebDriver
+            WebDriver driver = new ChromeDriver(); // Assuming you're using ChromeDriver
+
+            // Navigate to the decrypted URL
+            driver.get(decryptedUrl);
+
+            // Your test code goes here (e.g., interactions with the web page)
+            
+            // Don't forget to close the browser after testing
+            driver.quit(); 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

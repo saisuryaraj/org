@@ -1,0 +1,11 @@
+package day1;
+
+/*
+given() --> to write all the pre -req
+when() --> to give the http req get,post,put,delete
+then() --> for the validations (sometimes we use and)
+*/
+
+public class HTTPrequests {
+
+}
